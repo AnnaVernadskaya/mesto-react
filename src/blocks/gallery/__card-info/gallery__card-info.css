@@ -1,0 +1,11 @@
+.gallery__card-info {
+  display: flex;
+  max-width: 282px;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-right: 20px;
+  padding-left: 21px;
+  padding-bottom: 27px;
+  background-color: #FFFFFF;
+  border-radius: 0 0 10px 10px;
+}

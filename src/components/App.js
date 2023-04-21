@@ -16,6 +16,7 @@ function App() {
 
   const handleCardClick = (card) => {
     setSelectedCard(card);
+    setIsOpenPopupPhoto(true);
   };
 
   const handleEditProfileClick = () => {
@@ -28,14 +29,6 @@ function App() {
 
   const handleEditAvatarClick = () => {
     setIsEditAvatarPopupOpen(true);
-  };
-
-  const handleOpenPopupWiyhConfirmation = () => {
-  setIsOpenPopupWithConfirmation(true);
-  }
-
-  const handleOpenPhotoPopup = () => {
-    setIsOpenPopupPhoto(true);
   };
 
   const closeAllPopups = () => {
@@ -54,8 +47,6 @@ function App() {
         onEditProfile={handleEditProfileClick}
         onAddPlace={handleAddPlaceClick}
         onEditAvatar={handleEditAvatarClick}
-        onPopupWithConfirmationClick={handleOpenPopupWiyhConfirmation}
-        onPhotoPopupClick={handleOpenPhotoPopup}
       />
       <Footer />
 
@@ -79,7 +70,7 @@ function App() {
         <span className="popup__input-error" id="popup-input-name-error"></span>
 
         <input
-          class="popup__input_type_job popup__input"
+          className="popup__input_type_job popup__input"
           id="popup-input-job"
           type="text"
           name="info"
@@ -154,6 +145,7 @@ function App() {
       </PopupWithForm>
 
       <ImagePopup card={selectedCard} onClose={closeAllPopups} isOpen={isOpenPopupPhoto} />
+
     </div>
   );
 }

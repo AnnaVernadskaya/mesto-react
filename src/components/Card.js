@@ -9,7 +9,7 @@ function Card({card, onCardClick}) {
     return (
         <li className="gallery__card">
         <button className="gallery__delete-card" 
-        type="button"></button>
+        type="button" />
         <img className="gallery__img" 
         src={card.link} 
         alt={card.name} 

@@ -4,11 +4,10 @@ import { api } from '../utils/api';
 
 function Main ({onEditProfile,  onAddPlace, onEditAvatar, onCardClick}) {
 
-const [userName, setUserName] = React.useState();
-const [userDescription, setUserDescription] = React.useState();
-const [userAvatar, setUserAvatar] = React.useState();
+const [userName, setUserName] = React.useState('');
+const [userDescription, setUserDescription] = React.useState('');
+const [userAvatar, setUserAvatar] = React.useState('');
 const [cards, setCards] = React.useState([]);
-
 
 React.useEffect (() => {
     Promise.all([api.getUserInfo(), api.getInitialCards()]).then(
@@ -62,8 +61,6 @@ React.useEffect (() => {
 
             </ul>
         </section>
-
-
 </main>
     )
 }

@@ -29,13 +29,13 @@ export default class Api {
   }
 
   //Редактирование профиля
-  editUserInfo(nameUser, infoUser) {
+  editUserInfo({name, about}) {
     return fetch(`${this._url}/users/me`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        name: nameUser,
-        about: infoUser,
+        name: name,
+        about: about,
       }),
     }).then((res) => this._getResponseData(res));
   }
@@ -60,7 +60,7 @@ export default class Api {
   }
 
   //Добавление новой карточки
-  addNewCard(name, link) {
+  addNewCard({name, link}) {
     return fetch(`${this._url}/cards`, {
       method: "POST",
       headers: this._headers,
@@ -71,21 +71,21 @@ export default class Api {
     }).then((res) => this._getResponseData(res));
   }
 
-  //поставить лайк
-  addLike(idCard) {
+  // лайк 
+toggleButtonLike (idCard, isLiked) {
+  if(isLiked) {
     return fetch(`${this._url}/cards/${idCard}/likes/`, {
-      method: "PUT",
-      headers: this._headers,
-    }).then((res) => this._getResponseData(res));
+    method: "PUT",
+    headers: this._headers,
+  }).then((res) => this._getResponseData(res))
+} else {
+  return fetch(`${this._url}/cards/${idCard}/likes/`, {
+    method: "DELETE",
+    headers: this._headers,
+  }).then((res) => this._getResponseData(res))
   }
+}
 
-  //убрать лайк
-  removeLike(idCard) {
-    return fetch(`${this._url}/cards/${idCard}/likes/`, {
-      method: "DELETE",
-      headers: this._headers,
-    }).then((res) => this._getResponseData(res));
-  }
 }
 
 //Токен: 415a5d47-5581-45eb-947d-68b262607101
